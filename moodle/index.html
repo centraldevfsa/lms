@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aulas - Curso Fictício</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    #navbar {
+      transition: transform 0.3s ease, width 0.3s ease;
+    }
+
+    .dropdown-content {
+      display: none;
+    }
+
+    .dropdown-content.show {
+      display: block;
+    }
+
+    .dropdown-btn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Navbar (fixada) -->
+  <nav id="navbar" class="flex items-center justify-between p-5 text-white w-full fixed z-40 bg-black/50 backdrop-blur-sm transition-all duration-300">
+    <div class="flex items-center space-x-4">
+      <div class="text-xl font-bold">
+        <img src="http://lp.saudeavancada.com.br/fsaneo/img/logo-fsa-horizontal.svg" alt="Logo" class="h-16">
+      </div>
+    </div>
+    <div class="space-x-4">
+      <a href="#" class="hover:underline">Sair</a>
+    </div>
+  </nav>
+
+  <div class="flex pt-32 px-4 lg:px-20 space-x-4">
+    <!-- Lateral Esquerda (Módulos) -->
+    <div class="w-1/4 bg-gray-800 p-6 rounded-lg shadow-md">
+      <h3 class="text-2xl font-semibold mb-4">Módulos</h3>
+      <ul class="space-y-4">
+        <!-- Módulo 1 -->
+        <li>
+          <div class="dropdown-btn flex items-center justify-between" onclick="toggleDropdown(1)">
+            <span>Módulo 1: Introdução</span>
+            <svg id="arrow-1" class="w-5 h-5 transform rotate-0 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <ul id="dropdown-1" class="dropdown-content space-y-2 pl-4 text-sm text-gray-400">
+            <li><a href="#">Aula 1.1: O que é Nutrição</a></li>
+            <li><a href="#">Aula 1.2: Benefícios da Nutrição Funcional</a></li>
+          </ul>
+        </li>
+        <!-- Módulo 2 -->
+        <li>
+          <div class="dropdown-btn flex items-center justify-between" onclick="toggleDropdown(2)">
+            <span>Módulo 2: Fundamentos</span>
+            <svg id="arrow-2" class="w-5 h-5 transform rotate-0 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <ul id="dropdown-2" class="dropdown-content space-y-2 pl-4 text-sm text-gray-400">
+            <li><a href="#">Aula 2.1: Nutrientes Essenciais</a></li>
+            <li><a href="#">Aula 2.2: Metabolismo e Saúde</a></li>
+          </ul>
+        </li>
+        <!-- Módulos adicionais -->
+        <!-- Replicar os módulos conforme necessário, de 3 a 10 -->
+      </ul>
+    </div>
+
+    <!-- Área de Conteúdo (Vídeo + Resumo) -->
+    <div class="flex-1 bg-gray-800 p-6 rounded-lg shadow-md">
+      <h2 class="text-3xl font-semibold mb-4">Aula 1.1 - O que é Nutrição</h2>
+
+      <!-- Vídeo -->
+      <div class="mb-4">
+        <iframe class="w-full h-64 lg:h-96 rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <!-- Resumo da Aula -->
+      <div class="text-sm text-gray-400 mt-4">
+        <h3 class="text-xl font-semibold text-white">Resumo:</h3>
+        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel libero venenatis, interdum lorem et, tristique libero. Morbi auctor sollicitudin erat, ac egestas nulla tempor non. Donec auctor, erat eget aliquet ultrices, purus ligula hendrerit nisi, nec convallis elit odio nec nulla. Pellentesque sit amet felis et sapien feugiat tincidunt. Aenean convallis nisi vel arcu dictum vehicula.</p>
+      </div>
+
+      <!-- Enviar Dúvida -->
+      <div class="mt-6">
+        <h3 class="text-xl font-semibold text-white">Tem uma dúvida? Envie abaixo:</h3>
+        <form class="mt-4">
+          <textarea class="w-full p-4 bg-gray-700 text-white rounded-lg" placeholder="Escreva sua dúvida aqui..."></textarea>
+          <button class="mt-4 px-4 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 transition duration-200 w-full">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Lateral Direita (Post-its e Materiais) -->
+    <div class="w-1/4 bg-gray-800 p-6 rounded-lg shadow-md">
+      <h3 class="text-2xl font-semibold mb-4">Post-its</h3>
+      <div class="mb-4">
+        <button onclick="createPostIt()" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200 w-full">Criar Post-It</button>
+      </div>
+
+      <!-- Seção de Materiais -->
+      <h3 class="text-2xl font-semibold mb-4">Materiais</h3>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li><a href="#" class="hover:underline">Material 1: Guia de Nutrientes</a></li>
+        <li><a href="#" class="hover:underline">Material 2: Vídeo Explicativo</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 mt-10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col items-center">
+        <p class="text-sm">© 2023 CoursePlatform. Todos os direitos reservados.</p>
+        <div class="flex space-x-4 mt-2">
+          <a href="#" class="hover:underline">Política de Privacidade</a>
+          <a href="#" class="hover:underline">Termos de Serviço</a>
+          <a href="#" class="hover:underline">Fale Conosco</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Função para controlar o dropdown
+    function toggleDropdown(moduleNumber) {
+      const dropdown = document.getElementById(`dropdown-${moduleNumber}`);
+      const arrow = document.getElementById(`arrow-${moduleNumber}`);
+      dropdown.classList.toggle('show');
+      arrow.classList.toggle('rotate-180');
+    }
+
+    // Função para criar post-its
+    function createPostIt() {
+      const postIt = prompt("Digite seu post-it:");
+      if (postIt) {
+        alert(`Post-it criado: ${postIt}`);
+      }
+    }
+  </script>
+</body>
+</html>
