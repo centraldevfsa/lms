@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courseflix</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    #main-content, #main, #navbar {
+      transition: transform 0.3s ease, width 0.3s ease;
+    }
+
+    #navbar {
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Suaviza o fundo e o blur */
+  }
+
+  .course-card {
+  width: 100%; /* Isso permitirá que o card ocupe toda a largura disponível */
+  max-width: 100%; /* Evita que o card ultrapasse a largura disponível */
+  height: auto;
+  
+  background-size: cover; /* Garantir que a imagem ocupe o espaço corretamente */
+  background-position: center;
+  transition: transform 0.3s ease; /* Suaviza a animação de aumento */
+  transform-origin: left;
+  transition: transform 0.3s ease; /* Transição normal sem atraso */
+}
+
+.course-card .content {
+  max-width: 100%; /* Impede que o conteúdo ultrapasse a largura do card */
+  width: 100%;
+}
+
+.course-card:hover {
+  transform: scale(1.2); /* Aumenta a largura do card ao passar o mouse */
+  transition-delay: 0.5s; /* Atraso de 1 segundo antes do efeito ocorrer */
+}
+
+.custom-button {
+  display: flex;
+  align-items: center; /* Alinha o conteúdo verticalmente */
+  gap: 10px; /* Espaço entre o ícone e o texto */
+  padding: 12px 24px; /* Ajusta o espaçamento interno do botão */
+  border: 2px solid #DC2E5D; /* Borda do botão */
+  background-color: transparent; /* Fundo transparente */
+  color: white; /* Cor do texto */
+  font-size: 16px; /* Tamanho da fonte */
+  border-radius: 8px; /* Borda arredondada */
+  cursor: pointer;
+  transition: background-color 0.2s ease, font-weight 0.2s ease;
+}
+
+.custom-button:hover {
+  background-color: #DC2E5D; /* Muda o fundo ao passar o mouse */
+  font-weight: bold; /* Destaca o texto */
+}
+
+.custom-button {
+  display: flex;
+  align-items: center; /* Alinha o conteúdo verticalmente */
+  gap: 10px; /* Espaço entre o ícone e o texto */
+  padding: 12px 24px; /* Ajusta o espaçamento interno do botão */
+  border: 2px solid #DC2E5D; /* Borda do botão */
+  background-color: transparent; /* Fundo transparente */
+  color: white; /* Cor do texto */
+  font-size: 16px; /* Tamanho da fonte */
+  border-radius: 8px; /* Borda arredondada */
+  cursor: pointer;
+  transition: background-color 0.2s ease, font-weight 0.2s ease;
+}
+
+.custom-button:hover {
+  background-color: #DC2E5D; /* Muda o fundo ao passar o mouse */
+  font-weight: bold; /* Destaca o texto */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid white; /* Borda da elipse */
+  border-radius: 50%; /* Faz a elipse */
+  background-color: transparent; /* Fundo transparente */
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-left: 6px solid white; /* Cor e tamanho do ícone */
+  border-top: 5px solid transparent; /* Faz o triângulo */
+  border-bottom: 5px solid transparent;
+}
+
+.button-text {
+  line-height: 1; /* Garante o alinhamento vertical */
+}
+
+  </style>
+</head>
+<body class="bg-black text-white">
+  
+  <!-- Navbar -->
+<nav id="navbar" class="h-24 flex items-center justify-between p-8 text-white w-full fixed z-40 transition-all">
+  <div class="flex items-center space-x-4">
+    <button id="menu-btn" class="focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <div class="text-xl font-bold">
+      <img src="http://lp.saudeavancada.com.br/fsaneo/img/logo-fsa-horizontal.svg" alt="Logo" class="h-24 ml-8">
+    </div>
+  </div>
+  <div class="space-x-4">
+    <a href="#" class="px-6 py-3 bg-[#DC2E5D] text-white rounded-lg hover:bg-red-700 transition duration-200">Login</a>
+  </div>
+</nav>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-gray-800 text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+    <div class="flex items-center justify-between p-5">
+      <h2 class="text-2xl font-bold">
+        <img src="http://lp.saudeavancada.com.br/fsaneo/img/logo-fsa-horizontal.svg" alt="Logo da FSA" class="h-16">
+      </h2>
+      <button id="close-btn" class="focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Fechar Menu">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <ul class="p-5 space-y-3">
+      <li><a href="#" class="hover:underline">Formações e cursos</a></li>
+      <li><a href="#" class="hover:underline">Sobre a FSA</a></li>
+      <li><a href="#" class="hover:underline">Login</a></li>
+    </ul>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
+  <!-- Main Content -->
+  
+
+  <header id="main-content" class="relative bg-cover bg-center h-screen" style="background-image: url('https://lp.saudeavancada.com.br/fsaneo/img/bg-desk-sage.jpg');">
+    <div class="flex items-center h-full px-10">
+      <div class="text-white mt-32">
+        <img src="https://lp.saudeavancada.com.br/fsaneo/img/logo-sage.svg" alt="Logo FSA" class="h-32 mb-6">
+        <h1 class="text-5xl font-bold mb-4 max-w-xl">Pós-graduação em Nutrição Funcional</h1>
+        <p class="text-3xl mb-6 w-full max-w-2xl">com tutoria para profissionais da saúde.</p>
+        <div class="mt-16 flex gap-4"> <!-- Adicionado "flex" e "gap-4" -->
+          <a href="#">
+            <button class="px-6 py-3 bg-[#DC2E5D] text-white rounded-lg hover:bg-red-700 transition duration-200">
+              Dê o play no seu curso
+            </button>
+          </a>
+          <a href="#">
+            <button class="custom-button">
+              <div class="icon-container">
+                <div class="play-icon"></div>
+              </div>
+              <span class="button-text">Continuar de onde parou</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <header id="main-content" class="relative bg-cover bg-center h-screen" style="background-image: url('https://lp.saudeavancada.com.br/fsaneo/img/bg-desk-sage.jpg');">
+    <div class="flex items-center h-full px-10">
+      <div class="text-white mt-32">
+        <h1 class="text-5xl font-bold mb-4 max-w-xl">Formação em Nutrição Funcional 3.0</h1>
+        <p class="text-xl mb-6 w-full max-w-2xl">Adquira conhecimentos em Nutrição Funcional, focando na saúde holística e tratamento de questões nutricionais específicas. Ideal para ampliar habilidades em nutrição e bem-estar.</p>
+        <div class="mt-16 flex gap-4"> <!-- Adicionado "flex" e "gap-4" -->
+          <a href="#">
+            <button class="px-6 py-3 bg-[#DC2E5D] text-white rounded-lg hover:bg-red-700 transition duration-200">
+              Dê o play no seu curso
+            </button>
+          </a>
+          <a href="#">
+            <button class="custom-button">
+              <div class="icon-container">
+                <div class="play-icon"></div>
+              </div>
+              <span class="button-text">Continuar de onde parou</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <header id="main-content" class="relative bg-cover bg-center h-screen" style="background-image: url('https://lp.saudeavancada.com.br/fsaneo/img/bg-desk-sage.jpg');">
+    <div class="flex items-center h-full px-10">
+      <div class="text-white mt-32">
+        <h1 class="text-5xl font-bold mb-4 max-w-2xl">Fertilidade e Gestação</h1>
+        <p class="text-xl mb-6 w-full max-w-2xl">Adquira conhecimentos em Nutrição Funcional, focando na saúde holística e tratamento de questões nutricionais específicas. Ideal para ampliar habilidades em nutrição e bem-estar.</p>
+        <div class="mt-16 flex gap-4"> <!-- Adicionado "flex" e "gap-4" -->
+          <a href="#">
+            <button class="px-6 py-3 bg-[#DC2E5D] text-white rounded-lg hover:bg-red-700 transition duration-200">
+              Dê o play no seu curso
+            </button>
+          </a>
+          <a href="#">
+            <button class="custom-button">
+              <div class="icon-container">
+                <div class="play-icon"></div>
+              </div>
+              <span class="button-text">Continuar de onde parou</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+
+  <!-- Course Cards -->
+  <main id="main" class="px-4">
+
+    <h2 class="text-3xl font-semibold text-left mb-6">Nossas formações</h2>
+    <div class="course-cards-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      <!-- Course Card Example -->
+      <div class="course-card rounded-lg border border-gray-900 shadow-md overflow-hidden h-96 bg-cover bg-bottom" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5)), url('https://lp.saudeavancada.com.br/fsaneo/img/bg-desk-sage-mini.jpg');">
+        <div class="flex flex-col justify-end h-full p-4 text-white">
+          <h3 class="text-lg font-semibold">Programa Sage</h3>
+          <p class="mt-1">Learn how to build websites from scratch.</p>
+          <a href="#">
+            <button class="custom-button w-full justify-center mt-4">
+              <div class="icon-container">
+                <div class="play-icon ml-0.5"></div>
+              </div>
+              <span class="button-text">Dê o play</span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="course-card rounded-lg border border-gray-900 shadow-md overflow-hidden h-96 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('https://source.unsplash.com/random/300x400/?course1');">
+        <div class="flex flex-col justify-end h-full p-4 text-white">
+          <h3 class="text-lg font-semibold">Web Development Bootcamp</h3>
+          <p class="mt-1">Learn how to build websites from scratch.</p>
+        </div>
+      </div>
+
+      <div class="course-card rounded-lg border border-gray-900 shadow-md overflow-hidden h-96 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('https://source.unsplash.com/random/300x400/?course1');">
+        <div class="flex flex-col justify-end h-full p-4 text-white">
+          <h3 class="text-lg font-semibold">Web Development Bootcamp</h3>
+          <p class="mt-1">Learn how to build websites from scratch.</p>
+        </div>
+      </div>
+  
+      <!-- Add other course cards here, similar to the one above -->
+  
+    </div>
+
+
+ 
+    <h2 class="text-3xl font-semibold text-left mb-6 mt-16">Nossos Cursos</h2>
+    <div class="course-cards-wrapper grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      <!-- Course Card Example -->
+      <div class="course-card rounded-lg border border-gray-900 shadow-md overflow-hidden h-96 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5)), url('https://lp.saudeavancada.com.br/fsaneo/img/bg-desk-sage-mini.jpg');">
+        <div class="flex flex-col justify-end h-full p-4 text-white">
+          <h3 class="text-lg font-semibold">Programa Sage</h3>
+          <p class="mt-1">Learn how to build websites from scratch.</p>
+        </div>
+      </div>
+
+      <div class="course-card rounded-lg border border-gray-900 shadow-md overflow-hidden h-96 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('https://source.unsplash.com/random/300x400/?course1');">
+        <div class="flex flex-col justify-end h-full p-4 text-white">
+          <h3 class="text-lg font-semibold">Web Development Bootcamp</h3>
+          <p class="mt-1">Learn how to build websites from scratch.</p>
+        </div>
+      </div>
+
+      <div class="course-card rounded-lg border border-gray-900 shadow-md overflow-hidden h-96 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('https://source.unsplash.com/random/300x400/?course1');">
+        <div class="flex flex-col justify-end h-full p-4 text-white">
+          <h3 class="text-lg font-semibold">Web Development Bootcamp</h3>
+          <p class="mt-1">Learn how to build websites from scratch.</p>
+        </div>
+      </div>
+  
+      <!-- Add other course cards here, similar to the one above -->
+  
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-white py-6">
+    <div class="container mx-auto px-4 pt-24">
+      <div class="flex flex-col items-center">
+        <p class="text-sm">© 2024 FSA - Faculdade de Saúde Avançada. Todos os direitos reservados.</p>
+        <div class="flex space-x-4 mt-2">
+          <a href="#" class="hover:underline">Política de Privacidade</a>
+          <a href="#" class="hover:underline">Termos de Serviço</a>
+          <a href="#" class="hover:underline">Fale Conosco</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const navbar = document.getElementById('navbar');
+    const mainContent = document.getElementById('main-content');
+    const main = document.getElementById('main');
+  
+    const openMenu = () => {
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
+      navbar.style.transform = 'translateX(16rem)';
+      mainContent.style.transform = 'translateX(16rem)';
+      main.style.transform = 'translateX(16rem)';
+      navbar.style.width = `calc(100% - 16rem)`;
+      mainContent.style.width = `calc(100% - 16rem)`;
+      main.style.width = `calc(100% - 16rem)`;
+    };
+  
+    const closeMenu = () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+      navbar.style.transform = 'translateX(0)';
+      mainContent.style.transform = 'translateX(0)';
+      main.style.transform = 'translateX(0)';
+      navbar.style.width = `100%`;
+      mainContent.style.width = `100%`;
+      main.style.width = `100%`;
+    };
+  
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+  
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('bg-black/50', 'backdrop-blur-sm');  // Aplica o blur e a cor de fundo transparente
+      } else {
+        navbar.classList.remove('bg-black/50', 'backdrop-blur-sm');  // Remove o efeito quando voltar ao topo
+      }
+    });
+
+    const courseCards = document.querySelectorAll('.course-card');
+
+window.addEventListener('resize', function () {
+  courseCards.forEach(card => {
+    let cardWidth = card.offsetWidth;
+    // Ajuste adicional caso necessário para dimensionar o fundo
+    card.style.backgroundSize = `${cardWidth * 1.5}px ${cardWidth * 1.5 * (9 / 16)}px`; // Mantendo a proporção 16:9
+  });
+});
+
+  
+  </script>
+  
+</body>
+</html>
