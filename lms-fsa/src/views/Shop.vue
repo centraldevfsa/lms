@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mt-100">
       <h1 class="text-3xl font-bold">Página de Cursos</h1>
       <p>Explore os cursos disponíveis!</p>
     </div>
@@ -7,7 +7,7 @@
   
   <script>
   export default {
-    name: "AppCourses",
+    name: "AppShop",
   };
   </script>
   

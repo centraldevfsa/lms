@@ -2,6 +2,8 @@ import { createApp } from 'vue'; // Atualizado para Vue 3
 import App from './App.vue';
 import router from './router';
 import '@/assets/tailwind.css';
+import 'swiper/swiper-bundle.css';
+
 
 
 const app = createApp(App); // Criação da instância do app

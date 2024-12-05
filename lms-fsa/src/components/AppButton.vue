@@ -23,10 +23,10 @@
     computed: {
       computedClasses() {
         const baseClasses =
-          "px-6 py-2 rounded-lg font-semibold focus:outline-none transition duration-200";
+          "px-6 pt-2 pb-2 rounded-lg font-semibold focus:outline-none transition duration-200";
         const variants = {
-          primary: "bg-blue-500 text-white hover:bg-blue-700",
-          secondary: "bg-gray-300 text-black hover:bg-gray-400",
+          primary: "bg-pink-700 text-white hover:bg-gray-200 hover:border-pink-700 hover:text-pink-700 hover:shadow-2xl",
+          secondary: "bg-transparent text-black border border-pink-700 hover:bg-gray-400",
           danger: "bg-red-500 text-white hover:bg-red-700",
         };
         const sizes = {

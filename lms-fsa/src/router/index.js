@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import LandingHome from "../views/LandingHome.vue";
 import UserLogin from "../views/UserLogin.vue";
 import UserDashboard from "../views/UserDashboard.vue";
-import AppCourses from "../views/AppCourses.vue";
-import AppFormations from "../views/AppFormations.vue";
+import AppCourses from "../views/Courses.vue";
+import AppFormations from "../views/Formations.vue";
 import AppEvents from "../views/AppEvents.vue";
 import AppContact from "../views/AppContact.vue";
 
