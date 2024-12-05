@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    "index.html", // Arquivo HTML principal na raiz do projeto
+    "./src/index.html", // Arquivo HTML principal na raiz do projeto
     "./src/**/*.{vue,js,ts,jsx,tsx}", // Todos os arquivos Vue, JS, TS, JSX e TSX dentro da pasta src
     "./src/assets/**/*.{css,scss}", // Arquivos CSS ou SCSS na pasta assets
     "./src/components/**/*.{vue,js}", // Componentes Vue e arquivos JS na pasta components
