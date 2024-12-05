@@ -1,6 +1,8 @@
 import { createApp } from 'vue'; // Atualizado para Vue 3
+import './assets/tailwind.css';
 import App from './App.vue';
 import router from './router';
+
 
 const app = createApp(App); // Criação da instância do app
 app.use(router); // Registrar o router
