@@ -1,16 +1,21 @@
 <template>
-    <footer class="text-white py-6">
-      <div class="container mx-auto px-4 pt-24 border border-black">
-        <div class="flex flex-col items-center">
-          <p class="text-lg">© 2024 FSA - Faculdade de Saúde Avançada. Todos os direitos reservados.</p>
-          <div class="flex space-x-4 mt-2">
-            <a href="#" class="hover:underline">Política de Privacidade</a>
-            <a href="#" class="hover:underline">Termos de Serviço</a>
-            <a href="#" class="hover:underline">Fale Conosco</a>
-          </div>
-        </div>
+  <footer class="z-40 backdrop-blur-md bg-black text-white py-10">
+    <div class="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center justify-between">
+      
+      <!-- Logotipo e nome da instituição -->
+      <div class="lg:w-1/3 mb-6 lg:mb-0 lg:text-left">
+        <img src="../assets/logo-fsa-horizontal-limpo.svg" alt="Faculdade de Saúde Avançada" class="w-30">
       </div>
-    </footer>
+
+      <!-- Texto descritivo / Nota Legal -->
+      <div class="lg:w-2/3 text-sm text-gray-300 lg:text-left">
+        <p class="lg:max-w-lg lg:ml-auto text-[12px]">
+          Este treinamento é voltado para profissionais da Área da Saúde. O exercício da profissão é restrito a profissionais devidamente habilitados pelo conselho de classe correspondente à sua especialidade. Se você não possui esse registro, não siga as orientações recomendadas neste treinamento. Sempre consulte o seu médico sobre qualquer assunto relativo à sua saúde e aos tratamentos e medicamentos tomados por você ou pelas pessoas que recebem seus cuidados e atenção.
+        </p>
+      </div>
+    </div>
+  
+  </footer>
   </template>
   
   <script>

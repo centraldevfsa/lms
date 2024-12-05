@@ -9,7 +9,23 @@ module.exports = {
     "./public/**/*.html", // Arquivos HTML na pasta public (caso existam)
   ],
   theme: {
-    extend: {}, // Permite customizar o tema, como adicionar cores, fontes, etc.
+    extend: {
+      colors: {
+        valentino: {
+          '50': '#faf5fe',
+          '100': '#f4ebfc',
+          '200': '#ead6f8',
+          '300': '#dcb5f2',
+          '400': '#c789e9',
+          '500': '#ae5cd9',
+          '600': '#933cbd',
+          '700': '#7c2f9c',
+          '800': '#662880',
+          '900': '#582669',
+          '950': '#280a33',
+        },
+      },
+    },
   },
-  plugins: [], // Você pode adicionar plugins aqui, como Tailwind Forms ou Typography
+  plugins: [],
 };
