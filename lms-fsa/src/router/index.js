@@ -1,20 +1,50 @@
 import { createRouter, createWebHistory } from "vue-router";
+
+// Importação das views
 import LandingHome from "../views/LandingHome.vue";
 import UserLogin from "../views/UserLogin.vue";
 import UserDashboard from "../views/UserDashboard.vue";
-import AppCourses from "../views/Courses.vue";
-import AppFormations from "../views/Formations.vue";
-import AppEvents from "../views/AppEvents.vue";
-import AppContact from "../views/AppContact.vue";
+import Courses from "../views/Courses.vue";
+import Formations from "../views/Formations.vue";
+import Events from "../views/AppEvents.vue";
+import Contact from "../views/AppContact.vue";
 
 const routes = [
-  { path: "/", component: LandingHome },
-  { path: "/login", component: UserLogin },
-  { path: "/dashboard", component: UserDashboard },
-  { path: "/courses", component: AppCourses },
-  { path: "/formations", component: AppFormations },
-  { path: "/events", component: AppEvents },
-  { path: "/contact", component: AppContact },
+  {
+    path: "/",
+    component: LandingHome,
+    name: "Home", // Nome da rota
+  },
+  {
+    path: "/login",
+    component: UserLogin,
+    name: "Login", // Nome da rota
+  },
+  {
+    path: "/dashboard",
+    component: UserDashboard,
+    name: "Dashboard", // Nome da rota
+  },
+  {
+    path: "/courses",
+    component: Courses,
+    name: "Courses", // Nome da rota
+  },
+  {
+    path: "/formations",
+    component: Formations,
+    name: "Formations", // Nome da rota
+  },
+  {
+    path: "/events",
+    component: Events,
+    name: "Events", // Nome da rota
+  },
+  {
+    path: "/contact",
+    component: Contact,
+    name: "Contact", // Nome da rota
+  },
 ];
 
 const router = createRouter({

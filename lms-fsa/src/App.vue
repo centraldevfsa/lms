@@ -1,22 +1,37 @@
 <template>
   <div id="app">
-    <Navbar />
+    <!-- Exibe a Navbar apenas se não estiver em /login -->
+    <AppNavbar v-if="showNavbar" />
+    <!-- Área principal -->
     <router-view />
-    <Footer />
+    <!-- Exibe o Footer apenas se não estiver em /login -->
+    <AppFooter v-if="showFooter" />
   </div>
 </template>
 
-
-
 <script>
-import Navbar from './components/AppNavbar.vue';
-import Footer from './components/AppFooter.vue';
-
+import AppNavbar from "./components/AppNavbar.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
+  name: "App",
   components: {
-    Navbar,
-    Footer,
+    AppNavbar,
+    AppFooter,
+  },
+  computed: {
+    showNavbar() {
+      // Navbar não é exibida na página de login
+      return this.$route.path !== "/login";
+    },
+    showFooter() {
+      // Footer não é exibido na página de login
+      return this.$route.path !== "/login";
+    },
   },
 };
 </script>
+
+<style>
+/* Estilos globais */
+</style>
