@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Lexend', 'sans-serif'], // Define Lexend como fonte principal
+      },
       boxShadow: {
         'custom-black': '0 20px 50px rgba(0, 0, 0, 0.5)', // sombra preta
       },
@@ -28,6 +31,7 @@ module.exports = {
           '950': '#280a33',
         },
         'indigo-deep': '#4B0082',
+        'roxo-fsa': '#180522',
         'orange-bright': '#FF4500',
         'spring-green': '#00FF7F',
         'dark-purple': '#1E1E2F',

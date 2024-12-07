@@ -3,7 +3,7 @@
       class="slide"
       :style="{ backgroundImage: slide.backgroundImage }"
     >
-      <div class="content">
+      <div class="content p-8 pt-64">
         <img :src="slide.logo" alt="Logo" class="logo" />
         
         <p class="subtitle">{{ slide.subtitle }}</p>
@@ -44,13 +44,13 @@
     background-position: center;
     
     align-items: center;
-    padding: 10% 3%;
+    padding:;
   }
   .content {
     color: white;
-    max-width: 500px;
+    max-width: 600px;
     text-align: left;
-    margin-top:60%;
+    
   }
   .logo {
     width: 100%;
