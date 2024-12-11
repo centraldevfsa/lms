@@ -1,0 +1,21 @@
+[
+    {
+      "email": "zeze@saudeavancada.com.br",
+      "password": "pare",
+      "name": "Zezé di Camargo",
+      "role": "student"
+
+    },
+    {
+      "email": "magal@saudeavancada.com.br",
+      "password": "123",
+      "name": "Sidney Magal",
+      "role": "admin"
+    },
+    {
+      "email": "novousuario",
+      "password": "senha123",
+      "name": "Novo Usuário"
+    }
+  ]
+  

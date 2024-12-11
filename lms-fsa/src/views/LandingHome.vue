@@ -3,24 +3,40 @@
     <LandingSlider />
     <section class="px-8 py-12 bg-roxo-fsa">
       <h2 class="text-3xl font-regular text-white text-left ml-4 mt-4">Conheça nossas formações</h2>
+
       <div class="landing-home">
-    <CarouselHome />
-  </div>
- 
+        <CarouselHome />
+      </div>
+
     </section>
+    <TestimonialsSection />
+  <VideoSlider />
+  <BenefitsSection />
+  <HistorySection />
   </div>
+  
+
 </template>
 
 <script>
 import LandingSlider from "@/components/LandingSlider.vue";
-
 import CarouselHome from "@/components/CarouselHome.vue";
+import TestimonialsSection from "@/components/TestimonialsSection.vue";
+import VideoSlider from "@/components/VideoSlider.vue";
+import BenefitsSection from "@/components/BenefitsSection.vue";
+import HistorySection from "@/components/HistorySection.vue";
+
+
 
 export default {
   name: "LandingHome",
   components: {
     LandingSlider,
     CarouselHome,
+    TestimonialsSection,
+    VideoSlider,
+    BenefitsSection,
+    HistorySection,
   },
   data() {
     return {

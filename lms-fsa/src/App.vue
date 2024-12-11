@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <!-- Exibe a Navbar apenas se não estiver em /login -->
+    <!-- Exibe a Navbar apenas se permitido pela meta -->
     <AppNavbar v-if="showNavbar" />
     <!-- Área principal -->
     <router-view />
-    <!-- Exibe o Footer apenas se não estiver em /login -->
+    <!-- Exibe o Footer apenas se permitido pela meta -->
     <AppFooter v-if="showFooter" />
   </div>
 </template>
@@ -22,11 +22,11 @@ export default {
   computed: {
     showNavbar() {
       // Navbar não é exibida na página de login
-      return this.$route.path !== "/login";
+      return !this.$route.meta.hideLayout; // Verifica se deve esconder o layout
     },
     showFooter() {
       // Footer não é exibido na página de login
-      return this.$route.path !== "/login";
+      return !this.$route.meta.hideLayout; // Verifica se deve esconder o layout
     },
   },
 };

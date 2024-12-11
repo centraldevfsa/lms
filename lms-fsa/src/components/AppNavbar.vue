@@ -27,8 +27,8 @@
       <li><router-link to="/events" class="hover:text-pink-600">Eventos</router-link></li>
       <li><router-link to="/contact" class="hover:text-pink-600">Contato</router-link></li>
       <li>
-        <AppButton variant="primary">
-          <router-link to="/login">Login</router-link>
+          <AppButton variant="primary" :link="'/entrar'">
+           Login
         </AppButton>
       </li>
     </ul>

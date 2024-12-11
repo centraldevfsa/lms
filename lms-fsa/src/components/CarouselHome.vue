@@ -32,9 +32,9 @@
     data() {
       return {
         items: [
-          { image: "http://lp.saudeavancada.com.br/img/bg-card-home-sage.svg", link: "/sage" },
-          { image: "image2.jpg", link: "/details/2" },
-          { image: "image3.jpg", link: "/details/3" },
+          { image: "http://lp.saudeavancada.com.br/img/imgSageCapaVitrine.svg", link: "/sage" },
+          { image: "http://lp.saudeavancada.com.br/img/imgGestacaoCapaVitrine.svg", link: "/fertilidadegestacao" },
+          { image: "http://lp.saudeavancada.com.br/img/imgJejumCapaVitrine.svg", link: "/jejum" },
         ],
         visibleItems: [],
         scrollOffset: 0,

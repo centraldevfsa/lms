@@ -2,8 +2,8 @@
     <div
       class="card-container transition-all duration-300 relative overflow-hidden shadow-lg hover:shadow-4xl cursor-pointer rounded-xl m-2 mt-10 mb-10"
       :class="{
-        'w-[300px] h-[488px]': !hovering,
-        'w-[750px] h-[488px]': hovering, // 16:9 ratio (landscape)
+        'w-[250px] h-[488px]': !hovering,
+        'w-[720px] h-[488px]': hovering, // 16:9 ratio (landscape)
       }"
       @mouseover="startHover"
       @mouseleave="endHover"
