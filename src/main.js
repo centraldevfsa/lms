@@ -4,6 +4,12 @@ import router from './router';
 import store from './store';
 import '@/assets/tailwind.css';
 
+
+const apiUrl = import.meta.env.VITE_API_URL;
+console.log("API URL:", apiUrl);
+
+
+
 const app = createApp(App); // Criação da instância do app
 app.use(store); // Registrar o store
 app.use(router); // Registrar o router
