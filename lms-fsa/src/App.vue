@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <!-- Exibe a Navbar apenas se permitido pela meta -->
     <AppNavbar v-if="showNavbar" />
-    <!-- Área principal -->
     <router-view />
-    <!-- Exibe o Footer apenas se permitido pela meta -->
     <AppFooter v-if="showFooter" />
   </div>
 </template>
@@ -19,19 +16,26 @@ export default {
     AppNavbar,
     AppFooter,
   },
+  mounted() {
+    // Aplica o tema baseado no localStorage ou prefereências do sistema
+    const darkMode = JSON.parse(localStorage.getItem("darkMode")) || window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  },
   computed: {
     showNavbar() {
-      // Navbar não é exibida na página de login
-      return !this.$route.meta.hideLayout; // Verifica se deve esconder o layout
+      return !this.$route.meta.hideLayout;
     },
     showFooter() {
-      // Footer não é exibido na página de login
-      return !this.$route.meta.hideLayout; // Verifica se deve esconder o layout
+      return !this.$route.meta.hideLayout;
     },
   },
 };
 </script>
 
 <style>
-/* Estilos globais */
+/* Adicione estilos globais, se necessário */
 </style>

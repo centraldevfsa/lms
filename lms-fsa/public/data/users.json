@@ -4,7 +4,6 @@
       "password": "pare",
       "name": "Zezé di Camargo",
       "role": "student"
-
     },
     {
       "email": "magal@saudeavancada.com.br",
@@ -13,9 +12,10 @@
       "role": "admin"
     },
     {
-      "email": "novousuario",
-      "password": "senha123",
-      "name": "Novo Usuário"
+      "email": "secretaria@saudeavancada.com.br",
+      "password": "saudeavancada123",
+      "name": "Secretaria",
+      "role": "admin"
     }
   ]
   

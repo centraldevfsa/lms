@@ -65,9 +65,13 @@ export default {
         );
 
         if (authenticatedUser) {
-          this.login({ email: this.email }); // Salva no Vuex
-          this.$router.push("/areadoaluno"); // Redireciona para a área do aluno
-        } else {
+          this.login(authenticatedUser); // Chama a action para salvar o usuário logado no Vuex{ email: this.email }); // Salva no Vuex
+          if (authenticatedUser.role === "admin") {
+            this.$router.push("/admin");
+            } else {
+            this.$router.push("/areadoaluno"); // Chama a action para salvar o usuário
+            }
+          } else {
           alert("Credenciais inválidas. Tente novamente.");
         }
       } catch (error) {

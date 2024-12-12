@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class', // Usa a classe `dark` para alternar entre modos claro e escuro
   content: [
     "./src/index.html", // Arquivo HTML principal na raiz do projeto
     "./src/**/*.{vue,js,ts,jsx,tsx}", // Todos os arquivos Vue, JS, TS, JSX e TSX dentro da pasta src
@@ -8,6 +9,7 @@ module.exports = {
     "./src/router/**/*.{js,ts}", // Arquivos JS ou TS na pasta router
     "./public/**/*.html", // Arquivos HTML na pasta public (caso existam)
   ],
+
   theme: {
     extend: {
       fontFamily: {

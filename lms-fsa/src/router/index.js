@@ -5,14 +5,15 @@ import store from "@/store"; // Certifique-se de importar o Vuex Store corretame
 import LandingHome from "../views/LandingHome.vue";
 // import LoginPage from "../views/LoginPage.vue";
 import RegisterPage from "../views/RegisterPage.vue";
-import Dashboard from "../views/Dashboard.vue";
+import Dashboard from "../views/StudentDashboard.vue";
 import Courses from "../views/Courses.vue";
 import Formations from "../views/Formations.vue";
 import Events from "../views/AppEvents.vue";
 import Contact from "../views/AppContact.vue";
 import ProductDetails from "../views/ProductDetails.vue";
-import UserDashboard from "../views/Dashboard.vue";
+import UserDashboard from "../views/StudentDashboard.vue";
 import UserLogin from "../views/UserLogin.vue";
+import AdminDashboard from "../views/AdminDashboard.vue";
 
 
 // Importação de páginas específicas para formações
@@ -40,6 +41,12 @@ const routes = [
     path: "/register",
     component: RegisterPage,
     name: "Register",
+  },
+  {
+    path: "/admin",
+    component: AdminDashboard,
+    name: "AdminDashboard",
+    meta: { requiresAuth: true, hideLayout: true }, // Protegida
   },
   {
     path: "/dashboard",
@@ -107,10 +114,13 @@ const router = createRouter({
 
 // Proteção de rotas
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = store.getters.isAuthenticated || !!localStorage.getItem("user"); // Verifica no Vuex ou localStorage
+  const isAuthenticated = store.getters.isAuthenticated || !!localStorage.getItem("user");
+  const userRole = store.getters.userRole; // Verifica no Vuex ou localStorage
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next({ name: "Login" }); // Redireciona para a página de login se não autenticado
+    next({ name: "Login" }); 
+  } else if (to.meta.rolla && to.meta.role !== userRole) {
+    next({ name: "Dashboard" }); // Redireciona para a página de login se não autenticado
   } else {
     next(); // Permite acessar a rota
   }

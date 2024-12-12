@@ -17,23 +17,20 @@ export default createStore({
   },
   actions: {
     login({ commit }, userData) {
-      // Simula um login (substitua pelo back-end futuramente)
       commit("SET_USER", userData);
       localStorage.setItem("user", JSON.stringify(userData));
     },
-    logout({ commit }) {
-      commit("LOGOUT");
-      localStorage.removeItem("user");
-    },
     autoLogin({ commit }) {
-      const user = localStorage.getItem("user");
+      const user = JSON.parse(localStorage.getItem("user"));
       if (user) {
-        commit("SET_USER", JSON.parse(user));
+        commit("SET_USER", user);
       }
     },
   },
+  
   getters: {
     isAuthenticated: (state) => state.isAuthenticated,
     user: (state) => state.user,
+    userRole: (state) => state.user?.role,
   },
 });
