@@ -1,4 +1,4 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
@@ -17,17 +17,17 @@ export default createStore({
   },
   actions: {
     login({ commit }, userData) {
-      commit("SET_USER", userData);
-      localStorage.setItem("user", JSON.stringify(userData));
+      commit('SET_USER', userData);
+      localStorage.setItem('user', JSON.stringify(userData));
     },
     autoLogin({ commit }) {
-      const user = JSON.parse(localStorage.getItem("user"));
+      const user = JSON.parse(localStorage.getItem('user'));
       if (user) {
-        commit("SET_USER", user);
+        commit('SET_USER', user);
       }
     },
   },
-  
+
   getters: {
     isAuthenticated: (state) => state.isAuthenticated,
     user: (state) => state.user,

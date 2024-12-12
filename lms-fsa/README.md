@@ -7,6 +7,7 @@ O **LMS FSA** (Learning Management System) é uma plataforma desenvolvida para a
 ## Funcionalidades
 
 ### Para Alunos:
+
 - Dashboard com saudação personalizada.
 - Visualização e acompanhamento do progresso em cursos matriculados.
 - Gamificação: Conquista de troféus e certificados.
@@ -14,6 +15,7 @@ O **LMS FSA** (Learning Management System) é uma plataforma desenvolvida para a
 - Modo escuro/claro com persistência.
 
 ### Para Administradores:
+
 - Gerenciamento de usuários e cursos.
 - Visualização de métricas gerais do sistema.
 - Ferramentas para upload de materiais didáticos.
@@ -25,6 +27,7 @@ O **LMS FSA** (Learning Management System) é uma plataforma desenvolvida para a
 ### Principais Pastas e Arquivos:
 
 - **`src/`**
+
   - **`assets/`**: Arquivos estáticos como imagens e estilos globais.
   - **`components/`**: Componentes Vue reutilizáveis (ex.: `AppNavBar`, `AppFooter`).
   - **`views/`**: Páginas principais da aplicação (ex.: `LandingHome.vue`, `StudentDashboard.vue`, `AdminDashboard.vue`).
@@ -34,6 +37,7 @@ O **LMS FSA** (Learning Management System) é uma plataforma desenvolvida para a
   - **`main.js`**: Ponto de entrada principal do projeto.
 
 - **`public/`**
+
   - Arquivos públicos como `index.html` e `data/users.json` (para simulação de login).
 
 - **Arquivos de Configuração**
@@ -127,6 +131,7 @@ Este projeto é licenciado sob a licença **MIT**. Veja o arquivo `LICENSE` para
 ## Equipe
 
 **Desenvolvimento e Suporte:**
+
 - Central Dev FSA
 - Especialistas em Vue.js, Tailwind CSS e Gestão de Projetos EAD.
 

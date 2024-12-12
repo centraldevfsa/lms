@@ -1,31 +1,30 @@
 export default {
-    namespaced: true,
-    state: {
-      isAuthenticated: false,
-      user: null,
+  namespaced: true,
+  state: {
+    isAuthenticated: false,
+    user: null,
+  },
+  mutations: {
+    login(state, user) {
+      state.isAuthenticated = true;
+      state.user = user;
     },
-    mutations: {
-      login(state, user) {
-        state.isAuthenticated = true;
-        state.user = user;
-      },
-      logout(state) {
-        state.isAuthenticated = false;
-        state.user = null;
-      },
+    logout(state) {
+      state.isAuthenticated = false;
+      state.user = null;
     },
-    actions: {
-      login({ commit }, user) {
-        // Simula autenticação (futuro: conectar com API ou backend)
-        commit('login', user);
-      },
-      logout({ commit }) {
-        commit('logout');
-      },
+  },
+  actions: {
+    login({ commit }, user) {
+      // Simula autenticação (futuro: conectar com API ou backend)
+      commit('login', user);
     },
-    getters: {
-      isAuthenticated: (state) => state.isAuthenticated,
-      getUser: (state) => state.user,
+    logout({ commit }) {
+      commit('logout');
     },
-  };
-  
+  },
+  getters: {
+    isAuthenticated: (state) => state.isAuthenticated,
+    getUser: (state) => state.user,
+  },
+};

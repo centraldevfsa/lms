@@ -17,56 +17,105 @@
 </template>
 
 <script>
-import SlideContent from "./SlideContent.vue";
+import SlideContent from './SlideContent.vue';
 
 export default {
-  name: "LandingSlider",
+  name: 'LandingSlider',
   components: {
     SlideContent,
   },
   data() {
     return {
       slides: [
-      {
-        backgroundImage: "url('https://lp.saudeavancada.com.br/img/bg-desk-sage.jpg')",
-        logo: "https://lp.saudeavancada.com.br/img/logo-sage.svg",
-        title: "Pós-graduação em Nutrição Funcional",
-        subtitle: "com tutoria para profissionais da saúde.",
-        buttonPrimary: { text: "Saiba mais", variant: "primary", color: "#1D9BF0" },
-        buttonSecondary: { text: "Continuar", variant: "secondary", color: "#FFFFFF" },
-      },
-      {
-        backgroundImage: "url('https://lp.saudeavancada.com.br/img/bg-fert-gest.jpg')",
-        logo: "https://lp.saudeavancada.com.br/img/id-fert-gest.svg",
-        title: "Fertilidade & Gestação",
-        subtitle: "Aprenda a tratar a infertilidade e a programar a gestação.",
-        buttonPrimary: { text: "Saiba mais", variant: "primary", color: "#EAB308" },
-        buttonSecondary: { text: "Continuar", variant: "secondary", color: "#FFFFFF" },
-      },
-      {
-        backgroundImage: "url('https://lp.saudeavancada.com.br/img/bg-jejum.jpg')",
-        logo: "https://lp.saudeavancada.com.br/img/id-jejum.svg",
-        title: "Jejum - Ferramentas para a saúde",
-        subtitle: "Domine o jejum na prática clínica e revolucione a saúde de seus pacientes.",
-        buttonPrimary: { text: "Comece agora", variant: "primary", color: "#F72585" },
-        buttonSecondary: { text: "Continuar", variant: "secondary", color: "#FFFFFF" },
-      },
-      {
-        backgroundImage: "url('https://lp.saudeavancada.com.br/img/bg-nutri-funcional.jpg')",
-        logo: "https://lp.saudeavancada.com.br/img/id-nutri-func.svg",
-        title: "Nutrição Funcional 3.0",
-        subtitle: "Aprenda a tratar a infertilidade e a programar a gestação.",
-        buttonPrimary: { text: "Saiba mais", variant: "primary", color: "#7209B7" },
-        buttonSecondary: { text: "Continuar", variant: "secondary", color: "#FFFFFF" },
-      },
-      {
-        backgroundImage: "url('https://lp.saudeavancada.com.br/img/bg-exames-lab.jpg')",
-        logo: "https://lp.saudeavancada.com.br/img/logo-exames.svg",
-        title: "Exames Laboratoriais",
-        subtitle: "Domine a interpretação de exames laboratoriais para diagnósticos de excelência.",
-        buttonPrimary: { text: "Saiba mais", variant: "primary", color: "#00A5CF" },
-        buttonSecondary: { text: "Continuar", variant: "secondary", color: "#FFFFFF" },
-      },
+        {
+          backgroundImage:
+            "url('https://lp.saudeavancada.com.br/img/bg-desk-sage.jpg')",
+          logo: 'https://lp.saudeavancada.com.br/img/logo-sage.svg',
+          title: 'Pós-graduação em Nutrição Funcional',
+          subtitle: 'com tutoria para profissionais da saúde.',
+          buttonPrimary: {
+            text: 'Saiba mais',
+            variant: 'primary',
+            color: '#1D9BF0',
+          },
+          buttonSecondary: {
+            text: 'Continuar',
+            variant: 'secondary',
+            color: '#FFFFFF',
+          },
+        },
+        {
+          backgroundImage:
+            "url('https://lp.saudeavancada.com.br/img/bg-fert-gest.jpg')",
+          logo: 'https://lp.saudeavancada.com.br/img/id-fert-gest.svg',
+          title: 'Fertilidade & Gestação',
+          subtitle:
+            'Aprenda a tratar a infertilidade e a programar a gestação.',
+          buttonPrimary: {
+            text: 'Saiba mais',
+            variant: 'primary',
+            color: '#EAB308',
+          },
+          buttonSecondary: {
+            text: 'Continuar',
+            variant: 'secondary',
+            color: '#FFFFFF',
+          },
+        },
+        {
+          backgroundImage:
+            "url('https://lp.saudeavancada.com.br/img/bg-jejum.jpg')",
+          logo: 'https://lp.saudeavancada.com.br/img/id-jejum.svg',
+          title: 'Jejum - Ferramentas para a saúde',
+          subtitle:
+            'Domine o jejum na prática clínica e revolucione a saúde de seus pacientes.',
+          buttonPrimary: {
+            text: 'Comece agora',
+            variant: 'primary',
+            color: '#F72585',
+          },
+          buttonSecondary: {
+            text: 'Continuar',
+            variant: 'secondary',
+            color: '#FFFFFF',
+          },
+        },
+        {
+          backgroundImage:
+            "url('https://lp.saudeavancada.com.br/img/bg-nutri-funcional.jpg')",
+          logo: 'https://lp.saudeavancada.com.br/img/id-nutri-func.svg',
+          title: 'Nutrição Funcional 3.0',
+          subtitle:
+            'Aprenda a tratar a infertilidade e a programar a gestação.',
+          buttonPrimary: {
+            text: 'Saiba mais',
+            variant: 'primary',
+            color: '#7209B7',
+          },
+          buttonSecondary: {
+            text: 'Continuar',
+            variant: 'secondary',
+            color: '#FFFFFF',
+          },
+        },
+        {
+          backgroundImage:
+            "url('https://lp.saudeavancada.com.br/img/bg-exames-lab.jpg')",
+          logo: 'https://lp.saudeavancada.com.br/img/logo-exames.svg',
+          title: 'Exames Laboratoriais',
+          subtitle:
+            'Domine a interpretação de exames laboratoriais para diagnósticos de excelência.',
+          buttonPrimary: {
+            text: 'Saiba mais',
+            variant: 'primary',
+            color: '#00A5CF',
+          },
+          buttonSecondary: {
+            text: 'Continuar',
+            variant: 'secondary',
+            color: '#FFFFFF',
+          },
+        },
       ],
       activeSlide: 0,
       progress: 0,

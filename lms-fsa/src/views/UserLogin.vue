@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-900">
+  <div
+    class="flex flex-col items-center justify-center min-h-screen bg-gray-900"
+  >
     <div class="w-[90%] max-w-md p-8 bg-gray-800 rounded-lg shadow-md">
       <h2 class="text-2xl font-semibold text-center text-gray-300">Login</h2>
       <form @submit.prevent="handleLogin" class="mt-6">
@@ -15,7 +17,9 @@
           />
         </div>
         <div class="mt-4">
-          <label class="block text-sm text-gray-400" for="password">Senha</label>
+          <label class="block text-sm text-gray-400" for="password"
+            >Senha</label
+          >
           <input
             v-model="password"
             type="password"
@@ -43,21 +47,21 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
 
 export default {
-  name: "LoginPage",
+  name: 'LoginPage',
   data() {
     return {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     };
   },
   methods: {
-    ...mapActions(["login"]),
+    ...mapActions(['login']),
     async handleLogin() {
       try {
-        const response = await fetch("/data/users.json"); // Certifique-se de que o caminho está correto
+        const response = await fetch('/data/users.json'); // Certifique-se de que o caminho está correto
         const users = await response.json();
 
         const authenticatedUser = users.find(
@@ -66,17 +70,17 @@ export default {
 
         if (authenticatedUser) {
           this.login(authenticatedUser); // Chama a action para salvar o usuário logado no Vuex{ email: this.email }); // Salva no Vuex
-          if (authenticatedUser.role === "admin") {
-            this.$router.push("/admin");
-            } else {
-            this.$router.push("/areadoaluno"); // Chama a action para salvar o usuário
-            }
+          if (authenticatedUser.role === 'admin') {
+            this.$router.push('/admin');
           } else {
-          alert("Credenciais inválidas. Tente novamente.");
+            this.$router.push('/areadoaluno'); // Chama a action para salvar o usuário
+          }
+        } else {
+          alert('Credenciais inválidas. Tente novamente.');
         }
       } catch (error) {
-        console.error("Erro ao buscar os usuários:", error);
-        alert("Ocorreu um erro. Tente novamente mais tarde.");
+        console.error('Erro ao buscar os usuários:', error);
+        alert('Ocorreu um erro. Tente novamente mais tarde.');
       }
     },
   },

@@ -7,22 +7,24 @@
 </template>
 
 <script>
-import AppNavbar from "./components/AppNavbar.vue";
-import AppFooter from "./components/AppFooter.vue";
+import AppNavbar from './components/AppNavbar.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     AppNavbar,
     AppFooter,
   },
   mounted() {
     // Aplica o tema baseado no localStorage ou prefereências do sistema
-    const darkMode = JSON.parse(localStorage.getItem("darkMode")) || window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const darkMode =
+      JSON.parse(localStorage.getItem('darkMode')) ||
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (darkMode) {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove('dark');
     }
   },
   computed: {

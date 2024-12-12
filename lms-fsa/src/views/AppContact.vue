@@ -1,7 +1,9 @@
 <template>
   <div class="p-8">
     <h1 class="text-4xl font-bold mb-4">Fale Conosco</h1>
-    <p class="text-lg">Entre em contato conosco para dúvidas, sugestões ou suporte.</p>
+    <p class="text-lg">
+      Entre em contato conosco para dúvidas, sugestões ou suporte.
+    </p>
     <form class="mt-6 space-y-4">
       <div>
         <label for="name" class="block text-lg font-semibold">Nome</label>
@@ -22,7 +24,9 @@
         />
       </div>
       <div>
-        <label for="message" class="block text-lg font-semibold">Mensagem</label>
+        <label for="message" class="block text-lg font-semibold"
+          >Mensagem</label
+        >
         <textarea
           id="message"
           rows="4"
@@ -39,16 +43,16 @@
 </template>
 
 <script>
-import AppButton from "@/components/AppButton.vue"; // Certifique-se de que o caminho está correto
+import AppButton from '@/components/AppButton.vue'; // Certifique-se de que o caminho está correto
 
 export default {
-  name: "AppContact",
+  name: 'AppContact',
   components: {
     AppButton,
   },
   methods: {
     handleSubmit() {
-      alert("Mensagem enviada com sucesso!"); // Substitua por sua lógica de envio
+      alert('Mensagem enviada com sucesso!'); // Substitua por sua lógica de envio
     },
   },
 };

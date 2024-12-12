@@ -1,21 +1,20 @@
 [
-    {
-      "email": "zeze@saudeavancada.com.br",
-      "password": "pare",
-      "name": "Zezé di Camargo",
-      "role": "student"
-    },
-    {
-      "email": "magal@saudeavancada.com.br",
-      "password": "123",
-      "name": "Sidney Magal",
-      "role": "admin"
-    },
-    {
-      "email": "secretaria@saudeavancada.com.br",
-      "password": "saudeavancada123",
-      "name": "Secretaria",
-      "role": "admin"
-    }
-  ]
-  
+  {
+    "email": "zeze@saudeavancada.com.br",
+    "password": "pare",
+    "name": "Zezé di Camargo",
+    "role": "student"
+  },
+  {
+    "email": "magal@saudeavancada.com.br",
+    "password": "123",
+    "name": "Sidney Magal",
+    "role": "admin"
+  },
+  {
+    "email": "secretaria@saudeavancada.com.br",
+    "password": "saudeavancada123",
+    "name": "Secretaria",
+    "role": "admin"
+  }
+]

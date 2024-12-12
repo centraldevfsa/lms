@@ -1,109 +1,106 @@
-import { createRouter, createWebHistory } from "vue-router";
-import store from "@/store"; // Certifique-se de importar o Vuex Store corretamente
+import { createRouter, createWebHistory } from 'vue-router';
+import store from '@/store'; // Certifique-se de importar o Vuex Store corretamente
 
 // Importação das views principais
-import LandingHome from "../views/LandingHome.vue";
-// import LoginPage from "../views/LoginPage.vue";
-import RegisterPage from "../views/RegisterPage.vue";
-import Dashboard from "../views/StudentDashboard.vue";
-import Courses from "../views/Courses.vue";
-import Formations from "../views/Formations.vue";
-import Events from "../views/AppEvents.vue";
-import Contact from "../views/AppContact.vue";
-import ProductDetails from "../views/ProductDetails.vue";
-import UserDashboard from "../views/StudentDashboard.vue";
-import UserLogin from "../views/UserLogin.vue";
-import AdminDashboard from "../views/AdminDashboard.vue";
-
+import LandingHome from '../views/LandingHome.vue';
+import RegisterPage from '../views/RegisterPage.vue';
+import Dashboard from '../views/StudentDashboard.vue';
+import Courses from '../views/Courses.vue';
+import Formations from '../views/Formations.vue';
+import Events from '../views/AppEvents.vue';
+import Contact from '../views/AppContact.vue';
+import ProductDetails from '../views/ProductDetails.vue';
+import UserDashboard from '../views/StudentDashboard.vue';
+import UserLogin from '../views/UserLogin.vue';
+import AdminDashboard from '../views/AdminDashboard.vue';
 
 // Importação de páginas específicas para formações
-import NutricFuncionalPage from "../views/NutricFuncionalPage.vue";
-import FertilidadePage from "../views/FertilidadePage.vue";
-import ExamesPage from "../views/ExamesPage.vue";
+import NutricFuncionalPage from '../views/NutricFuncionalPage.vue';
+import FertilidadePage from '../views/FertilidadePage.vue';
+import ExamesPage from '../views/ExamesPage.vue';
 
 const routes = [
   // Página inicial
   {
-    path: "/",
+    path: '/',
     component: LandingHome,
-    name: "Home",
+    name: 'Home',
   },
   // Autenticação
-  
+
   {
-    path: "/entrar",
+    path: '/entrar',
     component: UserLogin,
-    name: "Login",
+    name: 'Login',
     meta: { hideLayout: true }, // Define que o layout será oculto
   },
   // Registro de novo usuário
   {
-    path: "/register",
+    path: '/register',
     component: RegisterPage,
-    name: "Register",
+    name: 'Register',
   },
   {
-    path: "/admin",
+    path: '/admin',
     component: AdminDashboard,
-    name: "AdminDashboard",
+    name: 'AdminDashboard',
     meta: { requiresAuth: true, hideLayout: true }, // Protegida
   },
   {
-    path: "/dashboard",
+    path: '/dashboard',
     component: Dashboard,
-    name: "Dashboard",
+    name: 'Dashboard',
     // meta: { requiresAuth: true }, // Rota protegida
   },
   {
-    path: "/areadoaluno",
+    path: '/areadoaluno',
     component: UserDashboard,
-    name: "Dashboard",
-    meta: { requiresAuth: true, hideLayout: true  }, // Marca esta rota como protegida e define que o layout será oculto
-
+    name: 'Dashboard',
+    meta: { requiresAuth: true, hideLayout: true }, // Marca esta rota como protegida e define que o layout será oculto
   },
   // Cursos e formações
   {
-    path: "/cursos",
+    path: '/cursos',
     component: Courses,
-    name: "Courses",
+    name: 'Courses',
   },
   {
-    path: "/formacoes",
+    path: '/formacoes',
     component: Formations,
-    name: "Formations",
+    name: 'Formations',
   },
   {
-    path: "/formacoes/nutricao-funcional",
+    path: '/formacoes/nutricao-funcional',
     component: NutricFuncionalPage,
-    name: "NutricFuncionalPage",
+    name: 'NutricFuncionalPage',
   },
   {
-    path: "/formacoes/fertilidade-gestacao",
+    path: '/formacoes/fertilidade-gestacao',
     component: FertilidadePage,
-    name: "FertilidadePage",
+    name: 'FertilidadePage',
   },
   {
-    path: "/formacoes/exames-laboratoriais",
+    path: '/formacoes/exames-laboratoriais',
     component: ExamesPage,
-    name: "ExamesPage",
+    name: 'ExamesPage',
   },
   // Eventos
   {
-    path: "/eventos",
+    path: '/eventos',
     component: Events,
-    name: "Events",
+    name: 'Events',
   },
   // Contato
   {
-    path: "/contato",
+    path: '/contato',
     component: Contact,
-    name: "Contact",
+    name: 'Contact',
   },
   // Detalhes de produtos
   {
-    path: "/detalhes/:id",
+    path: '/detalhes/:id',
     component: ProductDetails,
-    name: "ProductDetails",
+    name: 'ProductDetails',
   },
 ];
 
@@ -114,17 +111,17 @@ const router = createRouter({
 
 // Proteção de rotas
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = store.getters.isAuthenticated || !!localStorage.getItem("user");
+  const isAuthenticated =
+    store.getters.isAuthenticated || !!localStorage.getItem('user');
   const userRole = store.getters.userRole; // Verifica no Vuex ou localStorage
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next({ name: "Login" }); 
+    next({ name: 'Login' });
   } else if (to.meta.rolla && to.meta.role !== userRole) {
-    next({ name: "Dashboard" }); // Redireciona para a página de login se não autenticado
+    next({ name: 'Dashboard' }); // Redireciona para a página de login se não autenticado
   } else {
     next(); // Permite acessar a rota
   }
 });
-
 
 export default router;

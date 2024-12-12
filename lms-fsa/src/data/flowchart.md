@@ -1,6 +1,6 @@
 flowchart TD
-    A[Login do Aluno] -->|Credenciais Válidas| B[Dashboard do Aluno]
-    A -->|Credenciais Inválidas| C[Mensagem de Erro]
+A[Login do Aluno] -->|Credenciais Válidas| B[Dashboard do Aluno]
+A -->|Credenciais Inválidas| C[Mensagem de Erro]
 
     B --> D[Menu Lateral]
     D --> E[Cursos Matriculados]

@@ -1,12 +1,11 @@
 <template>
-    <div>
-      <h1>Cadastro</h1>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'UserCadastro',
-  };
-  </script>
-  
+  <div>
+    <h1>Cadastro</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'UserCadastro',
+};
+</script>
