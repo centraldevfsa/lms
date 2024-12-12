@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FSA - Faça seu cadastro</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="htpps://lp.saudeavancada.com.br/assets/img/favicon.svg" type="image/svg">
-
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-black">
+<template>
     <div class="flex flex-col items-center justify-center min-h-screen">
       <div class="w-full max-w-md p-8 bg-gray-950 rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold text-center text-gray-300 mt-4">Faça seu cadastro</h2>
@@ -47,5 +34,13 @@
         </div>
         <p class="mt-4 text-center text-sm text-gray-600">Já tem uma conta? <a href="#" class="text-white font-bold hover:underline">Log In</a></p>
       </div>
-</body>
-</html>
+    </div>
+    </template>
+
+    <style scoped>
+      /* Estilos personalizados */
+    </style>
+
+    <script>
+      // Script personalizado
+    </script>
