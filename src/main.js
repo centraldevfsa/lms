@@ -5,7 +5,7 @@ import store from './store';
 import '@/assets/tailwind.css';
 
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = "http://localhost:3000/api"; // Valor padrão direto no código
 console.log("API URL:", apiUrl);
 
 
