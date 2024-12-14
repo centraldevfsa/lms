@@ -8,6 +8,7 @@
         v-for="(slide, index) in slides"
         :key="index"
         :slide="slide"
+        @add-to-cart="addToCart(slide)"
       />
     </div>
     <div class="progress-bar">
@@ -39,7 +40,7 @@ export default {
             color: '#1D9BF0',
           },
           buttonSecondary: {
-            text: 'Continuar',
+            text: 'Adicionar ao carrinho',
             variant: 'secondary',
             color: '#FFFFFF',
           },
@@ -57,7 +58,7 @@ export default {
             color: '#EAB308',
           },
           buttonSecondary: {
-            text: 'Continuar',
+            text: 'Adicionar ao carrinho',
             variant: 'secondary',
             color: '#FFFFFF',
           },
@@ -75,7 +76,7 @@ export default {
             color: '#F72585',
           },
           buttonSecondary: {
-            text: 'Continuar',
+            text: 'Adicionar ao carrinho',
             variant: 'secondary',
             color: '#FFFFFF',
           },
@@ -93,7 +94,7 @@ export default {
             color: '#7209B7',
           },
           buttonSecondary: {
-            text: 'Continuar',
+            text: 'Adicionar ao carrinho',
             variant: 'secondary',
             color: '#FFFFFF',
           },
@@ -111,7 +112,7 @@ export default {
             color: '#00A5CF',
           },
           buttonSecondary: {
-            text: 'Continuar',
+            text: 'Adicionar ao carrinho',
             variant: 'secondary',
             color: '#FFFFFF',
           },
@@ -120,6 +121,7 @@ export default {
       activeSlide: 0,
       progress: 0,
       intervalId: null,
+      cart: [],
     };
   },
   methods: {
@@ -139,6 +141,14 @@ export default {
     },
     stopAutoPlay() {
       clearInterval(this.intervalId);
+    },
+    addToCart(course) {
+      if (!this.cart.find((item) => item.id === course.id)) {
+        this.cart.push(course);
+        console.log(`${course.title} foi adicionado ao carrinho!`, this.cart);
+      } else {
+        console.log(`${course.title} já está no carrinho.`);
+      }
     },
   },
   mounted() {

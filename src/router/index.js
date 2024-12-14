@@ -102,6 +102,11 @@ const routes = [
     component: ProductDetails,
     name: 'ProductDetails',
   },
+  {
+    path: "/checkout",
+    name: "CheckoutPage",
+    component: () => import("@/views/CheckoutPage.vue"),
+  }
 ];
 
 const router = createRouter({
