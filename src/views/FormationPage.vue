@@ -1,57 +1,57 @@
 <template>
-    <div >
-      <div class="container mx-auto py-10">
-        <div class="mt-16 w-full h-72 bg-cover bg-center mb-8" style="background-image: url('https://www.melissa.com.br/file/v2377357944649050462/general/202412_VM_MelissaBR_CombosFamilia_HomeSlide_D3.jpg');">
-        <!-- You can add text or other elements here if needed -->
-      </div>
-  
-        <!-- Cursos -->
-        <h1 class="text-white text-3xl font-bold text-center mb-8">Nossas formações</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div 
-            v-for="formation in formations" 
-            :key="formation.id" 
-            class="bg-white rounded-lg shadow-md overflow-hidden">
-  
-            <img :src="formation.image" :alt="formation.title" class="w-full h-48 object-cover">
-  
-            <div class="p-4">
-              <h2 class="text-xl font-semibold mb-2">{{ formation.title }}</h2>
-              <p class="text-gray-600 mb-4">{{ formation.description }}</p>
-  
-              <router-link 
-                :to="formation.link" 
-                class="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
-                Ver Detalhes
-              </router-link>
+    <div v-if="formation" class="container mx-auto py-10">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <!-- Imagem do curso -->
+            <img :src="formation.image" :alt="formation.title" class="w-full md:w-1/3 rounded-lg shadow-md" />
+
+            <!-- Detalhes do curso -->
+            <div class="flex-1">
+                <h1 class="text-3xl font-bold mb-4">{{ formation.title }}</h1>
+                <p class="text-gray-600 mb-6">{{ formation.description }}</p>
+
+                <!-- Tópicos do curso -->
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Tópicos do Curso:</h2>
+                    <ul class="list-disc list-inside text-gray-800">
+                        <li v-for="(topic, index) in formation.topics" :key="index">{{ topic }}</li>
+                    </ul>
+                </div>
+
+                <!-- Botão para Checkout -->
+                <router-link :to="{ path: '/checkout', query: { formationId: formation.id } }"
+                    class="mt-6 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+                    Comprar Curso
+                </router-link>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </template>
-  
-  
-  <script>
-import { formations } from '@/data/formationsData';
+    <div v-else class="container mx-auto py-96 text-center">
+        <h1 class="text-2xl text-red-500">Curso não encontrado</h1>
+    </div>
+</template>
+
+<script>
+import { formations } from "@/data/formationsData";
 
 export default {
-  name: 'FormationPage',
-  props: ['id'],
+  name: "FormationPage",
+  props: ["id"],
   data() {
     return {
-      formations: null,
+      formation: null,
     };
   },
   created() {
-    // Carrega o curso baseado no ID passado como parâmetro de rota
     this.formation = formations.find((formation) => formation.id === parseInt(this.id));
+    if (!this.formation) {
+      console.error("Formação não encontrada");
+    }
   },
 };
 </script>
 
 <style scoped>
 .container {
-  max-width: 1200px;
+    max-width: 1200px;
 }
 </style>

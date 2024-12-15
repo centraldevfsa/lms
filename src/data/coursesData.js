@@ -4,7 +4,7 @@ export const courses = [
       title: 'Nutrição Funcional',
       description: 'Aprofunde-se nos pilares da nutrição funcional.',
       image: 'https://lp.saudeavancada.com.br/img/nutricao-funcional.jpg',
-      link: '/cursos/nutricao-funcional',
+      link: '/cursos/1',
       topics: [
         'Introdução à nutrição funcional',
         'Bases bioquímicas e metabólicas',
@@ -17,7 +17,7 @@ export const courses = [
       title: 'Fertilidade e Gestação',
       description: 'Desenvolva habilidades para tratar a infertilidade.',
       image: 'https://lp.saudeavancada.com.br/img/fertilidade-gestacao.jpg',
-      link: '/cursos/fertilidade-gestacao',
+      link: '/cursos/2',
       topics: [
         'Introdução à fertilidade funcional',
         'Fatores nutricionais na concepção',

@@ -3,14 +3,17 @@
     <h2 class="text-2xl font-semibold mb-4">Carrinho de Compras</h2>
     <div v-if="cart.length" class="space-y-4">
       <div
-        v-for="course in cart"
-        :key="course.id"
+        v-for="item in cart"
+        :key="item.id"
         class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4"
       >
-        <h3 class="font-semibold text-lg">{{ course.title }}</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">{{ course.description }}</p>
+        <h3 class="font-semibold text-lg">{{ item.title }}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{{ item.description }}</p>
+        <span class="text-sm italic text-gray-500">
+          Tipo: {{ item.type === 'course' ? 'Curso' : 'Formação' }}
+        </span>
         <button
-          @click="removeFromCart(course.id)"
+          @click="removeFromCart(item.id)"
           class="text-red-500 hover:underline mt-2"
         >
           Remover
@@ -31,35 +34,45 @@
 </template>
 
 <script>
+import { courses } from "@/data/coursesData";
+import { formations } from "@/data/formationsData";
+
 export default {
   name: "CheckoutPage",
   data() {
     return {
-      cart: [
-        {
-          id: 1,
-          title: "Nutrição Funcional",
-          description: "Aprenda sobre nutrição funcional e saúde.",
-        },
-        {
-          id: 2,
-          title: "Exames Laboratoriais",
-          description: "Interpretação completa para diagnósticos.",
-        },
-      ],
+      cart: [],
     };
   },
   methods: {
-    removeFromCart(courseId) {
-      this.cart = this.cart.filter((course) => course.id !== courseId);
+    loadCartItems() {
+      // Simular carregamento de dados do carrinho (cursos e formações)
+      const cartCourses = courses.map((course) => ({
+        ...course,
+        type: "course",
+      }));
+      const cartFormations = formations.map((formation) => ({
+        ...formation,
+        type: "formation",
+      }));
+      this.cart = [...cartCourses, ...cartFormations];
+    },
+    removeFromCart(itemId) {
+      this.cart = this.cart.filter((item) => item.id !== itemId);
     },
     finalizePurchase() {
       // Simular a compra e redirecionar para o dashboard
-      const purchasedCourses = this.cart.map((course) => course.id);
-      localStorage.setItem("purchasedCourses", JSON.stringify(purchasedCourses));
-      alert("Compra finalizada! Cursos adicionados ao seu painel.");
+      const purchasedItems = this.cart.map((item) => ({
+        id: item.id,
+        type: item.type,
+      }));
+      localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems));
+      alert("Compra finalizada! Itens adicionados ao seu painel.");
       this.$router.push("/areadoaluno");
     },
+  },
+  mounted() {
+    this.loadCartItems();
   },
 };
 </script>

@@ -1,10 +1,10 @@
 export const formations = [
   {
     id: 1,
-    title: 'Nutrição Funcional',
+    title: 'Programa Sage',
     description: 'Aprofunde-se nos pilares da nutrição funcional.',
     image: 'https://lp.saudeavancada.com.br/img/nutricao-funcional.jpg',
-    link: '/formacoes/nutricao-funcional',
+    link: '/formacoes/1',
     topics: [
       'Introdução à nutrição funcional',
       'Bases bioquímicas e metabólicas',
@@ -14,10 +14,10 @@ export const formations = [
   },
   {
     id: 2,
-    title: 'Fertilidade e Gestação',
+    title: 'Jejum',
     description: 'Desenvolva habilidades para tratar a infertilidade.',
     image: 'https://lp.saudeavancada.com.br/img/fertilidade-gestacao.jpg',
-    link: '/formacoes/fertilidade-gestacao',
+    link: '/formacoes/2',
     topics: [
       'Introdução à fertilidade funcional',
       'Fatores nutricionais na concepção',

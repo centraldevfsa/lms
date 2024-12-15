@@ -5,9 +5,10 @@ import store from '@/store'; // Certifique-se de importar o Vuex Store corretame
 import LandingHome from '../views/LandingHome.vue';
 import RegisterPage from '../views/RegisterPage.vue';
 import Dashboard from '../views/StudentDashboard.vue';
-import Courses from '../views/Courses.vue';
-import Formations from '../views/Formations.vue';
-console.log(Formations);
+import CoursesPage from '../views/Courses.vue';
+import FormationsPage from '../views/Formations.vue';
+
+
 import Events from '../views/AppEvents.vue';
 import Contact from '../views/AppContact.vue';
 import ProductDetails from '../views/ProductDetails.vue';
@@ -15,10 +16,7 @@ import UserDashboard from '../views/StudentDashboard.vue';
 import UserLogin from '../views/UserLogin.vue';
 import AdminDashboard from '../views/AdminDashboard.vue';
 
-// Importação de páginas específicas para formações
-import NutricFuncionalPage from '../views/NutricFuncionalPage.vue';
-import FertilidadePage from '../views/FertilidadePage.vue';
-import ExamesPage from '../views/ExamesPage.vue';
+
 
 const routes = [
   // Página inicial
@@ -61,8 +59,8 @@ const routes = [
   // Cursos e formações
   {
     path: '/cursos',
-    component: Courses,
-    name: 'Courses',
+    component: CoursesPage,
+    name: 'CoursesPage',
   },
   {
     path: '/cursos/:id',
@@ -72,8 +70,8 @@ const routes = [
   },
   {
     path: '/formacoes',
-    component: Formations,
-    name: 'Formations',
+    component: FormationsPage,
+    name: 'FormationsPage',
   },
   {
     path: '/formacoes/:id',
@@ -81,22 +79,7 @@ const routes = [
     name: 'FormationPage',
     props: true,
   },
-  // Páginas específicas para formações
-  {
-    path: '/formacoes/nutricao-funcional',
-    component: NutricFuncionalPage,
-    name: 'NutricFuncionalPage',
-  },
-  {
-    path: '/formacoes/fertilidade-gestacao',
-    component: FertilidadePage,
-    name: 'FertilidadePage',
-  },
-  {
-    path: '/formacoes/exames-laboratoriais',
-    component: ExamesPage,
-    name: 'ExamesPage',
-  },
+  
   // Eventos
   {
     path: '/eventos',
