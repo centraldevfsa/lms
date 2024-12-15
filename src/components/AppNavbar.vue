@@ -147,8 +147,8 @@
         </div>
         <ul class="space-y-4 p-4">
           <li><router-link to="/shop">Loja</router-link></li>
-          <li><router-link to="/courses">Cursos</router-link></li>
-          <li><router-link to="/formations">Formações</router-link></li>
+          <li><router-link to="/cursos">Cursos</router-link></li>
+          <li><router-link to="/formacoes">Formações</router-link></li>
           <li><router-link to="/events">Eventos</router-link></li>
           <li><router-link to="/contact">Contato</router-link></li>
         </ul>
