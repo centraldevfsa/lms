@@ -9,7 +9,7 @@
         <img
           src="http://lp.saudeavancada.com.br/fsaneo/img/logo-fsa-horizontal.svg"
           alt="Logo"
-          class="h-24 cursor-pointer"
+          class="h-16 md:h-24 cursor-pointer"
         />
       </router-link>
     </div>
@@ -70,8 +70,8 @@
     <div class="hidden md:flex items-center space-x-8">
       <ul class="flex space-x-8">
         <li><router-link to="/shop" class="hover:text-pink-600">Loja</router-link></li>
-        <li><router-link to="/courses" class="hover:text-pink-600">Cursos</router-link></li>
-        <li><router-link to="/formations" class="hover:text-pink-600">Formações</router-link></li>
+        <li><router-link to="/cursos" class="hover:text-pink-600">Cursos</router-link></li>
+        <li><router-link to="/formacoes" class="hover:text-pink-600">Formações</router-link></li>
         <li><router-link to="/events" class="hover:text-pink-600">Eventos</router-link></li>
         <li><router-link to="/contact" class="hover:text-pink-600">Contato</router-link></li>
       </ul>

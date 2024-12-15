@@ -7,6 +7,7 @@ import RegisterPage from '../views/RegisterPage.vue';
 import Dashboard from '../views/StudentDashboard.vue';
 import Courses from '../views/Courses.vue';
 import Formations from '../views/Formations.vue';
+console.log(Formations);
 import Events from '../views/AppEvents.vue';
 import Contact from '../views/AppContact.vue';
 import ProductDetails from '../views/ProductDetails.vue';
@@ -27,7 +28,6 @@ const routes = [
     name: 'Home',
   },
   // Autenticação
-
   {
     path: '/entrar',
     component: UserLogin,
@@ -65,10 +65,23 @@ const routes = [
     name: 'Courses',
   },
   {
+    path: '/cursos/:id',
+    component: () => import('@/views/CoursePage.vue'),
+    name: 'CoursePage',
+    props: true,
+  },
+  {
     path: '/formacoes',
     component: Formations,
     name: 'Formations',
   },
+  {
+    path: '/formacoes/:id',
+    component: () => import('@/views/FormationPage.vue'),
+    name: 'FormationPage',
+    props: true,
+  },
+  // Páginas específicas para formações
   {
     path: '/formacoes/nutricao-funcional',
     component: NutricFuncionalPage,
@@ -103,10 +116,10 @@ const routes = [
     name: 'ProductDetails',
   },
   {
-    path: "/checkout",
-    name: "CheckoutPage",
-    component: () => import("@/views/CheckoutPage.vue"),
-  }
+    path: '/checkout',
+    name: 'CheckoutPage',
+    component: () => import('@/views/CheckoutPage.vue'),
+  },
 ];
 
 const router = createRouter({

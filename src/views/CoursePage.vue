@@ -1,46 +1,54 @@
 <template>
-    <div class="p-6 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen">
-      <h2 class="text-2xl font-semibold mb-4">Curso: {{ course.title }}</h2>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">{{ course.description }}</p>
-  
-      <div>
-        <h3 class="text-xl font-semibold mb-4">Módulo 1</h3>
-        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-4">
-          <h4 class="font-semibold">Aula 1: Introdução</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-            Assista à aula de introdução ao curso.
-          </p>
-          <video controls class="w-full rounded-lg">
-            <source src="https://www.example.com/video.mp4" type="video/mp4" />
-            Seu navegador não suporta vídeos HTML5.
-          </video>
-          <a
-            href="#"
-            class="block mt-4 text-blue-500 hover:underline"
-            download="material.pdf"
-          >
-            Baixar Material (PDF)
-          </a>
+  <div class="container mx-auto py-10">
+    <div class="flex flex-col md:flex-row items-center gap-6">
+      <!-- Imagem do curso -->
+      <img :src="course.image" :alt="course.title" class="w-full md:w-1/3 rounded-lg shadow-md" />
+
+      <!-- Detalhes do curso -->
+      <div class="flex-1">
+        <h1 class="text-3xl font-bold mb-4">{{ course.title }}</h1>
+        <p class="text-gray-600 mb-6">{{ course.description }}</p>
+        
+        <!-- Tópicos do curso -->
+        <div>
+          <h2 class="text-xl font-semibold mb-2">Tópicos do Curso:</h2>
+          <ul class="list-disc list-inside text-gray-800">
+            <li v-for="(topic, index) in course.topics" :key="index">{{ topic }}</li>
+          </ul>
         </div>
+
+        <!-- Botão para Checkout -->
+        <router-link
+          :to="{ path: '/checkout', query: { courseId: course.id } }"
+          class="mt-6 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+        >
+          Comprar Curso
+        </router-link>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "CoursePage",
-    data() {
-      return {
-        course: {
-          id: 1,
-          title: "Curso de Nutrição",
-          description: "Aprenda sobre nutrição funcional e saúde.",
-        },
-      };
-    },
-  };
-  </script>
-  
-  <style scoped>
-  </style>
-  
+  </div>
+</template>
+
+<script>
+import { courses } from '@/data/coursesData';
+
+export default {
+  name: 'CoursePage',
+  props: ['id'],
+  data() {
+    return {
+      course: null,
+    };
+  },
+  created() {
+    // Carrega o curso baseado no ID passado como parâmetro de rota
+    this.course = courses.find((course) => course.id === parseInt(this.id));
+  },
+};
+</script>
+
+<style scoped>
+.container {
+  max-width: 1200px;
+}
+</style>
