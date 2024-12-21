@@ -1,15 +1,7 @@
 <template>
   <div class="slider">
-    <div
-      class="slides"
-      :style="{ transform: `translateX(-${activeSlide * 100}%)` }"
-    >
-      <SlideContent
-        v-for="(slide, index) in slides"
-        :key="index"
-        :slide="slide"
-        @add-to-cart="addToCart(slide)"
-      />
+    <div class="slides" :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
+      <SlideContent v-for="(slide, index) in slides" :key="index" :slide="slide" @add-to-cart="addToCart(slide)" />
     </div>
     <div class="progress-bar">
       <div class="progress" :style="{ width: `${progress}%` }"></div>
@@ -33,7 +25,7 @@ export default {
             "url('https://lp.saudeavancada.com.br/img/bg-desk-sage.jpg')",
           logo: 'https://lp.saudeavancada.com.br/img/logo-sage.svg',
           title: 'Pós-graduação em Nutrição Funcional',
-          subtitle: 'com tutoria para profissionais da saúde.',
+          subtitle: 'Pós-graduação em Nutrição Funcional com tutoria para profissionais da saúde.',
           buttonPrimary: {
             text: 'Saiba mais',
             variant: 'primary',
@@ -175,8 +167,9 @@ export default {
   transition: transform 0.5s ease-in-out;
 }
 
-.slides > * {
-  flex: 0 0 100%; /* Cada slide ocupa 100% da largura do slider */
+.slides>* {
+  flex: 0 0 100%;
+  /* Cada slide ocupa 100% da largura do slider */
 }
 
 .progress-bar {
@@ -189,7 +182,8 @@ export default {
 
 .progress {
   height: 100%;
-  background-color: #ec4899; /* Cor pink-500 */
+  background-color: #ec4899;
+  /* Cor pink-500 */
   transition: width 0.1s ease-out;
 }
 </style>

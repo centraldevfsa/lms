@@ -15,14 +15,7 @@
       <!-- Texto descritivo / Nota Legal -->
       <div class="lg:w-2/3 text-sm text-gray-300 lg:text-left">
         <p class="lg:max-w-lg lg:ml-auto text-[12px]">
-          Este treinamento é voltado para profissionais da Área da Saúde. O
-          exercício da profissão é restrito a profissionais devidamente
-          habilitados pelo conselho de classe correspondente à sua
-          especialidade. Se você não possui esse registro, não siga as
-          orientações recomendadas neste treinamento. Sempre consulte o seu
-          médico sobre qualquer assunto relativo à sua saúde e aos tratamentos e
-          medicamentos tomados por você ou pelas pessoas que recebem seus
-          cuidados e atenção.
+          {{ $t('footer.legal-text') }}
         </p>
       </div>
     </div>

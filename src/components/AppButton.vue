@@ -41,7 +41,7 @@ export default {
         primary:
           'bg-pink-700 text-white hover:bg-gray-200 hover:border-pink-700 hover:text-pink-700 hover:shadow-2xl',
         secondary:
-          'bg-transparent text-white border border-pink-700 hover:bg-gray-400',
+          'bg-transparent text-white border border-pink-700 hover:bg-pink-600',
         danger: 'bg-red-500 text-white hover:bg-red-700',
       };
       const sizes = {

@@ -16,7 +16,7 @@
     </svg>
     <input
       type="text"
-      :placeholder="placeholder"
+      :placeholder="$t('search.placeholder')"
       class="pl-10 pr-4 py-1.5 w-full border border-gray-400 rounded-lg bg-white bg-opacity-5 shadow-xl shadow-gray-800 text-white focus:outline-none focus:border-0 focus:ring-2 focus:ring-pink-500"
       @input="onInput"
     />
@@ -26,12 +26,6 @@
 <script>
 export default {
   name: 'AppSearchInput',
-  props: {
-    placeholder: {
-      type: String,
-      default: 'O que você quer aprender?',
-    },
-  },
   methods: {
     onInput(event) {
       this.$emit('input', event.target.value);

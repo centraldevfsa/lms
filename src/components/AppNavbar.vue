@@ -30,12 +30,12 @@
       <!-- Botão de idioma -->
       <button @click="toggleLanguage" class="flex items-center space-x-2 text-sm" aria-label="Alterar idioma">
         <i class="fas fa-globe"></i>
-        <span>{{ currentLanguage }}</span>
+        <span>{{ currentLanguage === 'pt' ? 'Português' : 'Español' }}</span>
       </button>
 
       <!-- Botão Login/Usuário -->
       <div>
-        <router-link v-if="!isLoggedIn" to="/entrar" class="text-sm hover:underline">Entrar</router-link>
+        <router-link v-if="!isLoggedIn" to="/entrar" class="text-sm hover:underline">{{ $t('menu.login') }}</router-link>
         <div v-else class="relative">
           <button @click="toggleUserMenu" class="flex items-center" aria-label="Menu do usuário">
             <i class="fas fa-user text-xl"></i>
@@ -69,11 +69,11 @@
     <!-- Menu principal no desktop -->
     <div class="hidden md:flex items-center space-x-8">
       <ul class="flex space-x-8">
-        <li><router-link to="/shop" class="hover:text-pink-600">Loja</router-link></li>
-        <li><router-link to="/cursos" class="hover:text-pink-600">Cursos</router-link></li>
-        <li><router-link to="/formacoes" class="hover:text-pink-600">Formações</router-link></li>
-        <li><router-link to="/events" class="hover:text-pink-600">Eventos</router-link></li>
-        <li><router-link to="/contact" class="hover:text-pink-600">Contato</router-link></li>
+        <li><router-link to="/shop" class="hover:text-pink-600">{{ $t('menu.shop') }}</router-link></li>
+        <li><router-link to="/cursos" class="hover:text-pink-600">{{ $t('menu.courses') }}</router-link></li>
+        <li><router-link to="/formacoes" class="hover:text-pink-600">{{ $t('menu.formations') }}</router-link></li>
+        <li><router-link to="/events" class="hover:text-pink-600">{{ $t('menu.events') }}</router-link></li>
+        <li><router-link to="/contact" class="hover:text-pink-600">{{ $t('menu.contact') }}</router-link></li>
       </ul>
 
       <!-- Barra de pesquisa -->
@@ -98,12 +98,12 @@
       <!-- Botão de idioma -->
       <button @click="toggleLanguage" class="flex items-center space-x-2 text-sm" aria-label="Alterar idioma">
         <i class="fas fa-globe"></i>
-        <span>{{ currentLanguage }}</span>
+        <span>{{ currentLanguage === 'pt' ? 'PT' : 'ES' }}</span>
       </button>
 
       <!-- Botão Login/Usuário -->
       <div>
-        <router-link v-if="!isLoggedIn" to="/entrar" class="text-sm hover:underline">Entrar</router-link>
+        <router-link v-if="!isLoggedIn" to="/entrar" class="text-sm hover:underline">{{ $t('menu.login') }}</router-link>
         <div v-else class="relative">
           <button @click="toggleUserMenu" class="flex items-center" aria-label="Menu do usuário">
             <i class="fas fa-user text-xl"></i>
@@ -146,11 +146,11 @@
           />
         </div>
         <ul class="space-y-4 p-4">
-          <li><router-link to="/shop">Loja</router-link></li>
-          <li><router-link to="/cursos">Cursos</router-link></li>
-          <li><router-link to="/formacoes">Formações</router-link></li>
-          <li><router-link to="/events">Eventos</router-link></li>
-          <li><router-link to="/contact">Contato</router-link></li>
+          <li><router-link to="/shop">{{ $t('menu.shop') }}</router-link></li>
+          <li><router-link to="/cursos">{{ $t('menu.courses') }}</router-link></li>
+          <li><router-link to="/formacoes">{{ $t('menu.formations') }}</router-link></li>
+          <li><router-link to="/events">{{ $t('menu.events') }}</router-link></li>
+          <li><router-link to="/contact">{{ $t('menu.contact') }}</router-link></li>
         </ul>
       </div>
     </div>
@@ -171,7 +171,7 @@ export default {
       isLoggedIn: false,
       showUserMenu: false,
       mobileMenuOpen: false,
-      currentLanguage: 'PT',
+      currentLanguage: this.$i18n.locale,
     };
   },
   methods: {
@@ -190,7 +190,8 @@ export default {
       this.mobileMenuOpen = !this.mobileMenuOpen;
     },
     toggleLanguage() {
-      this.currentLanguage = this.currentLanguage === 'PT' ? 'ES' : 'PT';
+      this.currentLanguage = this.currentLanguage === 'pt' ? 'es' : 'pt';
+      this.$i18n.locale = this.currentLanguage;
     },
   },
 };
@@ -198,6 +199,6 @@ export default {
 
 <style scoped>
 #navbar {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.1);
 }
 </style>
