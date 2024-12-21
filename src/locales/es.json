@@ -1,0 +1,16 @@
+{
+  "menu": {
+    "shop": "Tienda",
+    "courses": "Cursos",
+    "formations": "Formaciones",
+    "events": "Eventos",
+    "contact": "Contacto",
+    "login": "Iniciar sesión"
+  },
+  "footer": {
+    "legal-text": "Este entrenamiento está dirigido a profesionales del área de la salud. El ejercicio de la profesión está restringido a profesionales debidamente cualificados por el colegio profesional correspondiente a su especialidad. Si no posee esta certificación, no siga las recomendaciones indicadas en este entrenamiento. Consulte siempre a su médico sobre cualquier asunto relacionado con su salud, así como con los tratamientos y medicamentos que usted o las personas bajo su cuidado estén recibiendo."
+  },
+  "search": {
+    "placeholder": "Buscar"
+  }
+}

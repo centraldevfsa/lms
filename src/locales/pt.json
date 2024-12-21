@@ -1,0 +1,16 @@
+{
+  "menu": {
+    "shop": "Loja",
+    "courses": "Cursos",
+    "formations": "Formações",
+    "events": "Eventos",
+    "contact": "Contato",
+    "login": "Entrar"
+  },
+  "footer": {
+    "legal-text": "Este treinamento é voltado para profissionais da Área da Saúde. O exercício da profissão é restrito a profissionais devidamente habilitados pelo conselho de classe correspondente à sua especialidade. Se você não possui esse registro, não siga as orientações recomendadas neste treinamento. Sempre consulte o seu médico sobre qualquer assunto relativo à sua saúde e aos tratamentos e medicamentos tomados por você ou pelas pessoas que recebem seus cuidados e atenção."
+  },
+  "search": {
+    "placeholder": "Pesquisar"
+  }
+}
